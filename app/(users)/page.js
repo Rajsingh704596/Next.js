@@ -4,7 +4,7 @@
 const Home=()=>{
   return(
     <>
-    <h1>Welcome Rock</h1>  
+    <h1 className="heading_title">Welcome Rock</h1>  
     </>
   )
 }

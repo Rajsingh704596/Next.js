@@ -1,4 +1,5 @@
-// Root Layout
+//! Root Layout - jitne bhi page.jsx/page.tsx hai wo Root layout se hokar(children basis pr) browser ui m show hota hai
+
 import Navigation from "@/Components/Navigation";
 import '../globals.css';
 
