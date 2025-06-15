@@ -1,7 +1,5 @@
-//! Root Layout - jitne bhi page.jsx/page.tsx hai wo Root layout se hokar(children basis pr) browser ui m show hota hai
 
 import Navigation from "@/Components/Navigation";
-import '../globals.css';
 import {Roboto} from "next/font/google";              // Roboto font import from google font using next/font
 import { Work_Sans } from "next/font/google";
 import { Roboto_Flex } from "next/font/google";       // variable font Roboto_Flex import
@@ -30,13 +28,13 @@ const robotoFlex = Roboto_Flex({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>        {/* In body, roboto font-family access like by roboto variable , Note - Roboto is non-variable font */}
+      {/* <body className={roboto.className}>        In body, roboto font-family access like by roboto variable , Note - Roboto is non-variable font */}           {/*ab ye work nhi karega kyuki global layout m body define kiya hai */}
            <h1 className={workSans.className}>Font Check (Work Sans - Non-Variable)</h1>              {/*Word Sans font apply on this heading using variable font */}
            <h2 className={robotoFlex.className}>Variable Font : Roboto_Flex</h2>
         <Navigation/>
         {children}
      
-      </body>
+      {/* </body> */}
     </html>
   );
 }
