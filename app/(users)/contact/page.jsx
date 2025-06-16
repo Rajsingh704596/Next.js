@@ -1,5 +1,13 @@
 import React from "react";
 
+//^ metadata obj. create for about page , next js handle this obj automatically
+export const metadata = {
+  title: "Contact page", // title show when this page load
+  description: "description for contact page",
+  authors: [{ name: "Raj Dev" }, { name: "Rock Dev", url: "google.com" }],
+  keywords: ["nextjs", "reactjs", "fullstack"],
+};
+
 const Contact = () => {
   return (
     <div>

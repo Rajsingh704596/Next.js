@@ -27,15 +27,18 @@ const robotoFlex = Roboto_Flex({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <>
+    {/* Note - html or body tag only use root layout for prevent Hydration Error  */}
+
       {/* <body className={roboto.className}>        In body, roboto font-family access like by roboto variable , Note - Roboto is non-variable font */}           {/*ab ye work nhi karega kyuki global layout m body define kiya hai */}
-           <h1 className={workSans.className}>Font Check (Work Sans - Non-Variable)</h1>              {/*Word Sans font apply on this heading using variable font */}
-           <h2 className={robotoFlex.className}>Variable Font : Roboto_Flex</h2>
-        <Navigation/>
-        {children}
+ 
+        {/*  <h1 className={workSans.className}>Font Check (Work Sans - Non-Variable)</h1>  */}            {/*Word Sans font apply on this heading using variable font */}
+        {/*  <h2 className={robotoFlex.className}>Variable Font : Roboto_Flex</h2>   */}  
+        <Navigation/>     
+        {children}               {/*All page render which inside about folder */}
      
-      {/* </body> */}
-    </html>
+   </>
+   
   );
 }
 
@@ -73,6 +76,12 @@ export default function RootLayout({ children }) {
  // when we use variable font , weight (default-400), style also automatically add. (e.g- "Roboto_Flex" )
  // Next.js recommended using variable fonts for the best performance and flexibility.
  // But if we not use variable font, we will need to specify a weight, style. (e.g- "Roboto","Word Sans" )
+
+//! Add Metadata, Fav Icon, OG Tags, Twitter cards (It helps for SEO and Web shareability(show image card in social media when share website link) ) -
+//# two default meta tag are always add if route doesn't define metadata (meta charset tag , meta viewport tag) .
+//# Metadata object we add all data (meta data , fav icon, Og (open Graph) tag, Twitter tag) , this object we can define in Root Layout, any individual Page or layout .
+
+
 
 
  
