@@ -45,3 +45,9 @@ body {
   font-size: larger;
   font-weight: bolder;
 }
+
+
+/* global heading using tailwind css */
+.heading{
+  @apply bg-gradient-to-r from-yellow-700 via-amber-600 to-orange-500 text-transparent bg-clip-text;
+}

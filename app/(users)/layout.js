@@ -34,8 +34,10 @@ export default function RootLayout({ children }) {
  
         {/*  <h1 className={workSans.className}>Font Check (Work Sans - Non-Variable)</h1>  */}            {/*Word Sans font apply on this heading using variable font */}
         {/*  <h2 className={robotoFlex.className}>Variable Font : Roboto_Flex</h2>   */}  
-        <Navigation/>     
+        <Navigation/>    
+        <div className="pt-20">
         {children}               {/*All page render which inside about folder */}
+        </div> 
      
    </>
    
@@ -55,7 +57,11 @@ export default function RootLayout({ children }) {
 
 // In short Route groups ek aisa folder hota hain jinka naam bracket m diya jata hai , ye folder url path m appear nhi hota hai , but here only users folder ko bracket m close kiya hai admin ko nhi isliye usse access karne k liye url path m admin likhna padega , and dono k root layout bhi different hai
 
-//! Font Optimization - next/font used     
+//! 3.Global Css vs Css Module
+
+//! 4.Image Component with diff. property & SEO benefits
+
+//! 5.Font Optimization - next/font used     
 //# next/font automatically optimize font , it's built in self-hosting for any font file, so we can optimally load web fonts(no required to  send request for third party font)   
 
 //# import it from next/font/local or next/font/google
@@ -77,11 +83,21 @@ export default function RootLayout({ children }) {
  // Next.js recommended using variable fonts for the best performance and flexibility.
  // But if we not use variable font, we will need to specify a weight, style. (e.g- "Roboto","Word Sans" )
 
-//! Add Metadata, Fav Icon, OG Tags, Twitter cards (It helps for SEO and Web shareability(show image card in social media when share website link) ) -
+//! 6.Add Metadata, Fav Icon, OG Tags, Twitter cards (It helps for SEO and Web shareability(show image card in social media when share website link) ) -
 //# two default meta tag are always add if route doesn't define metadata (meta charset tag , meta viewport tag) .
 //# Metadata object we add all data (meta data , fav icon, Og (open Graph) tag, Twitter tag) , this object we can define in Root Layout, any individual Page or layout .
 
+//! 7. React Server Component(backend part here)  v/s Client Component (React-Frontend part here)
+//# By default Inside App folder all files is server component , except one file that is error.js
 
+ //* when use Client Components when you need:  
+    //  State and event handlers. E.g. onClick, onChange.
+    //  Lifecycle logic. E.g. useEffect.
+    //  Browser-only APIs. E.g. localStorage, window, Navigator.geolocation, etc.
+    //  Custom hooks.
 
-
- 
+ //* Use Server Components when you need:
+    // Fetch data from databases or APIs close to the source.
+    // Use API keys, tokens, and other secrets without exposing them to the client. (means browser pr client side network tab m api key or other variable show nhi hote hai kuyki wo directly server per phle render hoke then client pr show hota hai )
+    // Reduce the amount of JavaScript sent to the browser.
+    // Improve the First Contentful Paint (FCP), and stream content progressively to the client.   

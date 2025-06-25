@@ -29,8 +29,8 @@ const Home=()=>{
 ];
   return(
     <>
-    <section className="m-10">
-    <h1 className="heading_title m-10">Welcome Rock</h1>  
+    <section className="px-10">
+    <h1 className="heading_title m-10">Welcome Rock <br /> <span className="heading">Web Developer</span></h1>  
     {/* Card*/} 
     <h2 className="text-2xl font-bold mb-4">Next Js : Image Component with normal way :- Render size , file size optimize automatically and minimized the value based on the space , and change in Webp format </h2>
     <div className="flex gap-5 wrap-normal m-2">

@@ -62,7 +62,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${roboto.variable} ${workSans.variable}`}>   {/*Adding font variable in body tag - here khuch bhi apply nhi hoga ye ab global css m css variable m pass hoga */}
+
+        <main className='w-full'>
+        <div className='max-w-7xl mx-auto bg-gradient-to-r from-neutral-800 via-slate-700 to-gray-800 px-10'>
         {children}           {/* All pages will render here */}
+
+        </div>
+        </main>
       </body>
     </html>
   );
