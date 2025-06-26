@@ -101,3 +101,16 @@ export default function RootLayout({ children }) {
     // Use API keys, tokens, and other secrets without exposing them to the client. (means browser pr client side network tab m api key or other variable show nhi hote hai kuyki wo directly server per phle render hoke then client pr show hota hai )
     // Reduce the amount of JavaScript sent to the browser.
     // Improve the First Contentful Paint (FCP), and stream content progressively to the client.   
+
+
+//! 8. Dynamic Route Segments (only use in Server Component )
+
+//# A dynamic segment is created by wrapping a folder name in square brackets: [folderName]
+//# For example, a blog route could look like: app/blog/[slug]/page.js
+//# Here, [slug] is the dynamic segment representing the unique identifier for each blog post.
+
+//# Use Case: When we need a single route with dynamic values — e.g. for user profiles,
+//# where the route is the same (e.g. /profile/[id]) but the id changes based on the user. 
+
+//* Nested Dynamic Route Segment (e.g - app/(user)/users/[username]/post/[postId])- create inside Dynamic Route segment folder (e.g - app/(user)/users/[username])
+
