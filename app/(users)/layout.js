@@ -145,5 +145,11 @@ export default function RootLayout({ children }) {
 //^ [[...slug]]  Optional catch-all segments
 //  0 or more slugs allowed (e.g. /blog, /blog/a, /blog/a/b)
 //  Matches /blog also    ,   if slug not present default page show (like all posts) and deeper slugs to show details
-//  params.slug = undefined | ['a'] | ['a', 'b']            
+//  params.slug = undefined | ['a'] | ['a', 'b']       
+
+
+//! 9. Dynamic or Nested Route Segments in Client Component - (using React 19 feature use api hook)  
+//#  use Api hook - use is a React Api that read the value of a resource like a "Promise or context" .
+// syntax-  const value = use(resource); 
+//? [Not Recommended] Dynamic or Nested Dynamic Route segments Always use in Server Component 
 
