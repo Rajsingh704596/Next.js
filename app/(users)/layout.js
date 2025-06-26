@@ -103,7 +103,7 @@ export default function RootLayout({ children }) {
     // Improve the First Contentful Paint (FCP), and stream content progressively to the client.   
 
 
-//! 8. Dynamic Route Segments (only use in Server Component )
+//! 8. Dynamic Route Segments [slug] (only use in Server Component )
 
 //# A dynamic segment is created by wrapping a folder name in square brackets: [folderName]
 //# For example, a blog route could look like: app/blog/[slug]/page.js
@@ -113,4 +113,37 @@ export default function RootLayout({ children }) {
 //# where the route is the same (e.g. /profile/[id]) but the id changes based on the user. 
 
 //* Nested Dynamic Route Segment (e.g - app/(user)/users/[username]/post/[postId])- create inside Dynamic Route segment folder (e.g - app/(user)/users/[username])
+
+
+//! 8.1 Catch-all Segments ( [...slug] for dynamic nested routes - it' part of Advance routing)
+
+//# In Next.js catch-all segments [...slug] are incredibly useful when we want to handle "dynamic nested routes" without having to manually define each level of the path.
+
+//^e.g 1> Blog with Nested Categories - Path eg:  /blog/technology/javascript
+// Use Case - we may have blog categories and subcategories:
+//            /blog     /blog/technology     /blog/technology/javascript
+
+//* Instead of creating separate [category]/[subcategory]/page.jsx , we can use  app/blog/[...slug]/page.jsx
+//* here [...slug] handle category inside multiple subcategory
+
+//^e.g 2> E-commerce Product Catalog - Path e.g:  /shop/clothing/men/shirts
+// Use Case - Users can filter or browser products through multiple nested categories.
+// File:    app/shop/[...slug]/page.js
+
+
+//! 8.2 Optional Catch-all Segments [[...slug]]
+//# Catch-all Segments can be made optional by including the parameter in double square brackets: [[...folderName]].
+
+// For example, app/shop/[[...slug]]/page.js will also match /shop, in addition to /shop/clothes, /shop/clothes/tops, /shop/clothes/tops/t-shirts.
+
+//? Diff. b/w Catch-All Segments and Optional Catch-All Segments -
+//^ [...slug]  Catch-all segments
+//  At least 1 slug required (e.g. /blog/a, /blog/a/b)
+//  Does NOT match /blog   , if slug not present it's show 404 error
+//  params.slug = ['a', 'b']
+
+//^ [[...slug]]  Optional catch-all segments
+//  0 or more slugs allowed (e.g. /blog, /blog/a, /blog/a/b)
+//  Matches /blog also    ,   if slug not present default page show (like all posts) and deeper slugs to show details
+//  params.slug = undefined | ['a'] | ['a', 'b']            
 
