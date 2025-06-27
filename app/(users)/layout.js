@@ -153,3 +153,18 @@ export default function RootLayout({ children }) {
 // syntax-  const value = use(resource); 
 //? [Not Recommended] Dynamic or Nested Dynamic Route segments Always use in Server Component 
 
+
+//! 10. What is a "searchParams"? How To use URl Query String ?
+//# In Next js (especially in App Router), searchParams is an optional prop we can access in server components or via loader functions "to read query parameters directly from the URL".
+//# It's extremely useful for building features like Filtering, Sorting, Pagination, Search, Dynamic Deals  -- all of which are essential in e-commerce(ecom) websites.
+//# searchParams is a Dynamic API whose values cannot be known ahead of time. Using it will opt the page into "dynamic rendering" at request time.
+
+// it refers to the query string parameters in the URL - like this:
+//             /products?category=shoes&sort=price_asc&page=2           (after ? mark all data is query string)
+
+//^ (feature)             (Example URL)                       (what searchParams Enables)
+//$ Filtering       /products?category=shoes&brand=nike       Filter product list by category and brand
+//$ Sorting         /products?sort=price_asc                  Show result sorted by price, popularity, rating
+//$ Pagination      /products?page=3                          Show next page of products
+//$ Search          /products?query=red+jacket                Search product by keyword
+//$ Dynamic Deals   /products?category=shoes&brand=nike       Show product with discounts over 30%
