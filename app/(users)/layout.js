@@ -103,7 +103,7 @@ export default function RootLayout({ children }) {
     // Improve the First Contentful Paint (FCP), and stream content progressively to the client.   
 
 
-//! 8. Dynamic Route Segments [slug] (only use in Server Component )
+//! 8. Dynamic Route Segments [slug] (only use in Server Component + Access by props.params)
 
 //# A dynamic segment is created by wrapping a folder name in square brackets: [folderName]
 //# For example, a blog route could look like: app/blog/[slug]/page.js
@@ -115,7 +115,7 @@ export default function RootLayout({ children }) {
 //* Nested Dynamic Route Segment (e.g - app/(user)/users/[username]/post/[postId])- create inside Dynamic Route segment folder (e.g - app/(user)/users/[username])
 
 
-//! 8.1 Catch-all Segments ( [...slug] for dynamic nested routes - it' part of Advance routing)
+//! 8.1 Catch-all Segments ( [...slug] for dynamic nested routes - it' part of Advance routing) (only use in Server Component + Access by props.params)
 
 //# In Next.js catch-all segments [...slug] are incredibly useful when we want to handle "dynamic nested routes" without having to manually define each level of the path.
 
@@ -131,7 +131,7 @@ export default function RootLayout({ children }) {
 // File:    app/shop/[...slug]/page.js
 
 
-//! 8.2 Optional Catch-all Segments [[...slug]]
+//! 8.2 Optional Catch-all Segments [[...slug]]  (only use in Server Component + Access by props.params)
 //# Catch-all Segments can be made optional by including the parameter in double square brackets: [[...folderName]].
 
 // For example, app/shop/[[...slug]]/page.js will also match /shop, in addition to /shop/clothes, /shop/clothes/tops, /shop/clothes/tops/t-shirts.
@@ -148,13 +148,13 @@ export default function RootLayout({ children }) {
 //  params.slug = undefined | ['a'] | ['a', 'b']       
 
 
-//! 9. Dynamic or Nested Route Segments in Client Component - (using React 19 feature use api hook)  
+//! 9. Dynamic or Nested Route Segments in Client Component - (using React 19 feature use api hook)  [Not Recommended]
 //#  use Api hook - use is a React Api that read the value of a resource like a "Promise or context" .
 // syntax-  const value = use(resource); 
 //? [Not Recommended] Dynamic or Nested Dynamic Route segments Always use in Server Component 
 
 
-//! 10. What is a "searchParams"? How To use URl Query String ?
+//! 10. What is a "searchParams"? How To use URl Query String ? [In React Server Component]
 //# In Next js (especially in App Router), searchParams is an optional prop we can access in server components or via loader functions "to read query parameters directly from the URL".
 //# It's extremely useful for building features like Filtering, Sorting, Pagination, Search, Dynamic Deals  -- all of which are essential in e-commerce(ecom) websites.
 //# searchParams is a Dynamic API whose values cannot be known ahead of time. Using it will opt the page into "dynamic rendering" at request time.
@@ -168,3 +168,12 @@ export default function RootLayout({ children }) {
 //$ Pagination      /products?page=3                          Show next page of products
 //$ Search          /products?query=red+jacket                Search product by keyword
 //$ Dynamic Deals   /products?category=shoes&brand=nike       Show product with discounts over 30%
+
+
+//! 11. Get Url Data (from Url path) or Handle Url Query String In Client Component In 2 way -
+    
+   //? 11.1   Using "searchParams" with the help useApi React 19 hook in Client Component
+        //#  if React Client Component not page.jsx or it's component use inside server Component at that time we must pass prop.searchParams as a props otherwise it's shows undefined searchParams and throw error
+
+   //? 11.2   Using "useSearchParams hook"{next js hook/method/function} in Client Component   (Recommended way)
+          //# useSearchParams is a Client Component hook that lets we read the current URl's query string.
