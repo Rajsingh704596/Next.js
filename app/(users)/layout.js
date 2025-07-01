@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
 
 
 
-//! 1.App Router - In Next.js(after v13+) for routing we use app router where inside App folder structure, folder create and their page.jsx ui define
+//! 1.App Router - In Next.js(after v13+) for routing we use app router where inside App folder structure, folder create and their page.jsx ui define and Root layout.js(where all page.jsx render pass then show in Ui) 
 
 //! 2.Route Group- (it's not affect the final URL path)
 //? In Next.js App Router, Router Groups are way to organize our routes without affecting the URL structure.
@@ -177,3 +177,20 @@ export default function RootLayout({ children }) {
 
    //? 11.2   Using "useSearchParams hook"{next js hook/method/function} in Client Component   (Recommended way)
           //# useSearchParams is a Client Component hook that lets we read the current URl's query string.
+
+
+//! 12 Fetch API Data + Url Query String in Different way in Server Component vs Client Component -
+
+   //? 12.1 In React async Server Component - Fetch Api Data direct + if need to get urlQuery string then use props.searchParams 
+   //? 12.2 In React Client Component - Fetch Api Data inside useEffect() + if need to get urlQuery string then (1st way)useSearchParams() hook / (2nd way) use(props.searchParams) 
+
+//! 13 loading.js/.jsx/.tsx file- (Automatic Loading show in next.js by using "loading.jsx" file(where Loading component define) inside App Folder)  
+
+//# When Content Not Serve / take time to load in UI / Fetch Data At that time we can show an instant loading state from the server while the content of a route segment streams in.
+//# By default, this file is a Server Component - but we can also be used as a Client Component through the "use client" directive.
+
+ //? we can use same loading for all files {where loading.jsx file define in root folder} or Individual Ui loading for individual page.jsx folder {where individual loading.jsx file define inside that particular app folder name }
+ // todo_Note -  file name Must be small letter loading.js  and inside function component Name - Loading
+
+
+

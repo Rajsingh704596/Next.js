@@ -1,4 +1,4 @@
-//! FetchApi data in React Server Component -
+//! FetchApi data in React Server Component -  {when hit url http://localhost:3000/fetch-api-data/server-comp?name=rohit}
 
 //* Here first we get URL query (?name=...) using searchParams,
 //* and pass it into the Genderize API to show name, gender, and probability

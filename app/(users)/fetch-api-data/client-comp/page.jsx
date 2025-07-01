@@ -1,4 +1,4 @@
-//! FetchApi Data in React Client Component -
+//! FetchApi Data in React Client Component -  {when hit url http://localhost:3000/fetch-api-data/client-comp?name=rohit}
 "use client";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState, use } from "react";
