@@ -192,5 +192,28 @@ export default function RootLayout({ children }) {
  //? we can use same loading for all files {where loading.jsx file define in root folder} or Individual Ui loading for individual page.jsx folder {where individual loading.jsx file define inside that particular app folder name }
  // todo_Note -  file name Must be small letter loading.js  and inside function component Name - Loading
 
+// ! 14 <Suspense> fallback - [Part of page/UI loading... show in Server Component]
+//# <Suspense> display fallback ui(loading.../loading animation) until it's children have finished loading or not get properly or take time
+//# Suspense in Next.js : Load Async Part Only (wrap that component)- so Rest of UI Loads Immediately + fallback ui (together)
+//@ Suspense only works for asynchronous child components of the current tree.
+//@ But if the parent component itself throws or rejects (because the API call failed in the parent), then the entire tree cannot render, and React has no fallback to show
+//@ fetch(...) runs before Suspense even comes into play.
+//@ If fetch fails in parent(where suspense define) → Parent cannot render → Suspense never gets mounted → hydration mismatch/error.
+
+//^ For example-
+//  Show a loading spinner for just part of the page 
+//  Fetch server-side data inside a component(server component)
+//  Make our UI feel more responsive without waiting for everything
+
+//? (Best Practice for Lazy loading or handle Async data)
+//# In Server component - Use Suspense only when part of UI depends on slow server-side component data.(for Api call , Db queries, Rendering partial layout while data loads)
+//todo Note- React.lazy() in server component not supported.
+
+//# In Client component - Use when component is heavy or depends on client-only libraries(e.g charts, maps, modals etc)
+//* 1st way> use React.lazy() + Suspense { Pure React style lazy loading} (Not Recommended)
+//* 2nd way> next/dynamic()  {Preferred in Next.js , More flexible, Can enable/disable SSR , Works well with 3rd-party libs} 
+
+
+
 
 
