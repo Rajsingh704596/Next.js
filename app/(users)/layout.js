@@ -213,6 +213,33 @@ export default function RootLayout({ children }) {
 //* 1st way> use React.lazy() + Suspense { Pure React style lazy loading} (Not Recommended)
 //* 2nd way> next/dynamic()  {Preferred in Next.js , More flexible, Can enable/disable SSR , Works well with 3rd-party libs} 
 
+//! Static Page Rendering [SSG] vs Dynamic Page Rendering [SSR]  {In Server Component} -
+
+  //? Static Page (Default Behavior) / Pre-rendered once at build (SSG)
+  //# In Next.js, all routes page are 'static' by default.
+  //^ for e.g - 
+  //$ Page is generated once during npm run build.
+  //$ Doesn't change based on user or request data.
+  //$ Loads super fast and can be cached by CDNs.  
+  
+  //* Note- Static Page Rendering - npm run build time that file show in console with this symbol "o" - that means "static (pre-rendered as static content)" , and after npm run build then npm run start- data which show first time in UI always fixed not change (even after database will change/update/delete that not reflect ) and store in cached {that called static site generation (SSG)/Pre-rendered once at build (SSG)}
+  //e.g [console show this]   o rendering/static
+
+  //? Dynamic Page Rendered on Every Request (SSR)
+  //# A page becomes dynamic when it depends on data that can change between requests, like:
+  //^ for e.g- (page where we use any of this become dynamic page)
+  //$ searchParams  (e.g- url query string-  /user?id=rock)
+  //$ header() function
+  //$ cookies() function
+  //$ useSearchParams() or usePathname()
+  //$ fetch() with cache : 'no-store' or next:{revalidate:0}
+  //$ Or when we manually mark a page (forcefully) as dynamic using (Route segment config):-     export const dynamic = "force-dynamic" ;    
+    //* Note- Dynamic Page Rendering - npm run build time that file show in console with this symbol "f" - that means "Dynamic (server rendered on demand)" , and after npm run build then npm run start - data show in UI and constantly update on Every Request when (reload page), and automatically change based on database on Every Request (even after build, when database will change/update/delete that reflect) {that called server side rendering(SSR)}
+  //e.g [console show this]   f rendering/dynamic
+
+  
+
+
 
 
 
