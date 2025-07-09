@@ -293,5 +293,18 @@ export default function RootLayout({ children }) {
 // - Use for mixed content pages (e.g. /product/[id]) – show static shell, load dynamic parts.
 
 
+//! 16 React Cache() method - (Useful for Fast or Optimize data fetching in SSR-Server side Rendering(dynamic page) in Server Component)
+//# cache() - it is a function introduced in React 18+ that allows to memoize (store the result of) a function based on its arguments so it's doesn't run again if called with same argument.
+//# This is particularly useful on the server to avoid repeated data fetching for the same input, especially during SSR or RSC(React Server Component) rendering.
+//# React cache() fetches data on first call and reuses it from memory for the same arguments on subsequent server calls.
+//* Note- cache() works only in server components or in server environment like Next.js app router.
+
+    // import { cache } from 'react'
+    // export const getItem = cache(async id => { /* DB/API fetch */ })
+
+//todo-  Bonus: Ye automatic cache invalidation nahi karta, toh manual handling zaroori ho sakti hai jab data dynamic ho.(old way) 
+//todo-  New way: Next js 15 introduce 'use cache'
+           
+
 
 
