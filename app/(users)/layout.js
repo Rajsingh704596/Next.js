@@ -213,7 +213,11 @@ export default function RootLayout({ children }) {
 //* 1st way> use React.lazy() + Suspense { Pure React style lazy loading} (Not Recommended)
 //* 2nd way> next/dynamic()  {Preferred in Next.js , More flexible, Can enable/disable SSR , Works well with 3rd-party libs} 
 
-//! Static Page Rendering [SSG] vs Dynamic Page Rendering [SSR]  {In Server Component} -
+//! 15.1 Static Page Rendering [SSG] vs 15.2 Dynamic Page Rendering [SSR]  {In Server Component} -
+//^ (In Console show)
+// ○  (Static)   prerendered as static content
+// ƒ  (Dynamic)  server-rendered on demand
+
 
   //? Static Page (Default Behavior) / Pre-rendered once at build (SSG)
   //# In Next.js, all routes page are 'static' by default.
@@ -235,11 +239,58 @@ export default function RootLayout({ children }) {
   //$ fetch() with cache : 'no-store' or next:{revalidate:0}
   //$ Or when we manually mark a page (forcefully) as dynamic using (Route segment config):-     export const dynamic = "force-dynamic" ;    
     //* Note- Dynamic Page Rendering - npm run build time that file show in console with this symbol "f" - that means "Dynamic (server rendered on demand)" , and after npm run build then npm run start - data show in UI and constantly update on Every Request when (reload page), and automatically change based on database on Every Request (even after build, when database will change/update/delete that reflect) {that called server side rendering(SSR)}
-  //e.g [console show this]   f rendering/dynamic
+  //e.g [console show this]   ƒ /rendering/dynamic
 
   
+//! 15.3  Incremental Static Regeneration (ISR)  [auto update/regenerate Static Pages without Rebuild after revalidation period]-
+//# Update static content without rebuilding the entire site.
+//# Reduce server load by serving pre-rendered, static page for most request.
+//# Blend of both worlds: static generation + background revalidation.
+//# On-demand revalidation: call res.revalidate('/page') in an API route to refresh specific pages 
+
+//* Note: To convert a static page to use ISR (Incremental Static Regeneration),
+// add the following line inside the server component of the static page:
+
+// export const revalidate = 60;  
+
+//^ This means (after build):
+// - The cached data will be valid for 60 seconds (1 minute).
+// - After that, the next request will trigger a background fetch to get fresh data.
+// - During this fetch, stale data is still shown to the user.
+// - Once regeneration completes, a page reload will show the updated data.
+// - This helps serve pages faster (from cache) and reduces server load.
+
+//e.g [console show this npm run build time]   o rendering/ISR       //^ that o means pre-rendered static content           
 
 
+//$ Summary Table -
+//| Strategy            | When to Use                                |   Next.js Highlights                                             | 
+//| ------------------- | ------------------------------------------ | ---------------------------------------------------------------  |
+//| Static (SSG)        | Stable content, marketing, docs            | Parallel builds, edge caching, hydration                         |
+//| Dynamic (SSR)       | User-specific or real-time data            | Use server props or `cookies()` APIs; controlled by `dynamic`flag|
+//| ISR                 | Frequently updated content, but cacheable  | Per-page `revalidate`, on-demand API revalidation                |
+//| PartialPre-Rendering| Mixed static & dynamic content on one page | Components inside Suspense for dynamic zones                     |
+
+//$ Best Practices in Next.js 15 (For Server component) -
+//? 🔹 Static Pages (SSG):
+// - Use static rendering by default for speed and simplicity.
+// - Best for pages with content that doesn’t change often.
+// - Example: Static Routes in the App Router. (e.g. /about) – fast & simple
+
+//? 🔹 Dynamic Pages (SSR):
+// - Use Server-Side Rendering when you need real-time, user-specific, or authenticated data.
+// - Example: Dynamic Routes with SSR. , Use for dynamic data like /dashboard or /profile – real-time/authenticated.
+
+//? 🔹 ISR (Incremental Static Regeneration):
+// - Use ISR to keep static pages up-to-date without needing a full rebuild.
+// - It combines the performance of static pages with the freshness of dynamic content.
+// - Example:Use for static pages that need updates(ISR+SSG) (e.g. /blog) – `export const revalidate = 60`..
+
+//? 🔹 PPR (Partial Pre-Rendering) + Suspense:
+// - Blend Combine static and dynamic rendering on the same page for better performance.
+// - Use `Suspense` to load dynamic parts without blocking the static ones.
+// - Great for improving performance while handling dynamic data.
+// - Use for mixed content pages (e.g. /product/[id]) – show static shell, load dynamic parts.
 
 
 

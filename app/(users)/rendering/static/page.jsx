@@ -17,6 +17,10 @@ const StaticPage = async () => {
       <p className="mb-6 text-gray-600">
         Database data shown in frontend directly from a Server Component.
       </p>
+      <h2>
+        It's Static Page Rendering by default every server component ,after
+        build always fixed even after database is change here not reflect
+      </h2>
 
       <ul className="space-y-4">
         {doctors?.map((doc) => (

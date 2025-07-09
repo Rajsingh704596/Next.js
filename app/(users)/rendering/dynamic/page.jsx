@@ -1,4 +1,4 @@
-//!(after step-1) It's Dynamic Page and Dynamic Route (SSR)
+//!(after step-1) It's Dynamic Page and Dynamic Route (SSR) [After build every time send req. when user go this page]
 
 import { db } from "@/config/db.jsx";
 
@@ -19,6 +19,12 @@ const DynamicPage = async () => {
       <p className="mb-6 text-gray-600">
         Database data shown in frontend directly from a Server Component.
       </p>
+
+      <h2>
+        It's dynamic page where data is up to date (after build every time send
+        req. for db , when hit this page(dynamic rendering page in Server
+        component))
+      </h2>
 
       <ul className="space-y-4">
         {doctors?.map((doc) => (
