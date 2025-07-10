@@ -305,6 +305,17 @@ export default function RootLayout({ children }) {
 //todo-  Bonus: Ye automatic cache invalidation nahi karta, toh manual handling zaroori ho sakti hai jab data dynamic ho.(old way) 
 //todo-  New way: Next js 15 introduce 'use cache'
            
+//! 17. not-found.js / not-found.jsx file (it's Server Component) : it Fix Next default Route Error and Show Error page UI-
+//# not-found.jsx component is use for show Error Page  , and it's automatic appear when hit wrong path in url
 
+//^(Inside we get this functionality) like this-
+//? Go Back Home button-  we use Link component. e.g <Link href="/"> ... </Link>
 
+//? Go Previous Page button - we use useRouter() method from next/navigation , but it's work only in client component . 
+//   const router = useRouter()   ,                   {for app router get from next/navigation}
+//    router.back();          // Goes to previous page 
+//    router.push("/");       // Fallback to home page
+
+//! notFound() -
+//? notFound() fun. call - When In fetching time / Database data not get - next js not show byDefault not-found.jsx page , but we get using call of notFound() function then not-Found.jsx page show in UI.
 
