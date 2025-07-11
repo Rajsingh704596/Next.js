@@ -319,3 +319,12 @@ export default function RootLayout({ children }) {
 //! notFound() -
 //? notFound() fun. call - When In fetching time / Database data not get - next js not show byDefault not-found.jsx page , but we get using call of notFound() function then not-Found.jsx page show in UI.
 
+//! 18. generateStaticParams()  -
+//# the generateStaticParams function can be "used in combination with dynamic route segment to statically generate routes at build time" instead of on-demand at request time.
+// export async function generateStaticParams() {}                // used inside dynamic route page 
+//^ UseCase - when database data fetch using params (for getting dynamic route value (id)) (so it's default dynamic page rendering b/c use of param) so prevent every time send req. to database for get data , we use generateStaticParams() function which map all dynamic id , so build time all data store in memory based on the id , (after npm run start) so now data show fastly when send req. in url as a statically generate
+
+ //$ keynotes-
+ //# generateStaticParams() only work in Server Component.
+ //# if we have big dataset (means 1 million+ slugs(dynamic value)) then build time error show. then hybrid dynamic/ISR is better.
+ //# use when dynamic routes[slug],[id](dynamic render page) to pre-render static page , so In short Dynamic pages ko build time pr static pages m convert karne k liye ye fun use hota hai
