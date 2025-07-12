@@ -34,3 +34,98 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Folder Structure
+
+```md
+
+nextjs_app/
+├─ app/
+│  ├─ (users)/
+│  │  ├─ about/
+│  │  │  ├─ section/
+│  │  │  │  └─ page.jsx
+│  │  │  ├─ about.module.css
+│  │  │  ├─ layout.jsx
+│  │  │  └─ page.jsx
+│  │  ├─ blog/
+│  │  │  └─ [...slug]/
+│  │  │     └─ page.jsx
+│  │  ├─ client-comp/
+│  │  │  ├─ Counter.jsx
+│  │  │  └─ page.jsx
+│  │  ├─ contact/
+│  │  │  ├─ server-action/                  (server Action , "use server" e.g for FormData in Server Component)
+│  │  │  │  ├─ contact.server-action.jsx
+│  │  │  │  └─ page.jsx
+│  │  │  └─ page.jsx         
+│  │  ├─ doctors/
+│  │  │  └─ [id]/
+│  │  │     └─ page.jsx
+│  │  ├─ fetch-api-data/
+│  │  │  ├─ client-comp/
+│  │  │  │  ├─ loading.jsx
+│  │  │  │  └─ page.jsx
+│  │  │  ├─ server-comp/
+│  │  │  │  ├─ DataCard.jsx
+│  │  │  │  ├─ loading.jsx
+│  │  │  │  └─ page.jsx
+│  │  │  └─ page.jsx
+│  │  ├─ products/
+│  │  │  ├─ page.jsx
+│  │  │  └─ ProductList.jsx
+│  │  ├─ rendering/
+│  │  │  ├─ dynamic/
+│  │  │  │  └─ page.jsx
+│  │  │  ├─ ISR/
+│  │  │  │  └─ page.jsx
+│  │  │  └─ static/
+│  │  │     └─ page.jsx
+│  │  ├─ server-comp/
+│  │  │  └─ page.jsx
+│  │  ├─ static/
+│  │  │  └─ page.jsx
+│  │  ├─ users/
+│  │  │  └─ [username]/
+│  │  │     ├─ post/
+│  │  │     │  └─ [postId]/
+│  │  │     │     └─ page.jsx
+│  │  │     └─ page.jsx
+│  │  ├─ layout.js
+│  │  ├─ loading.js
+│  │  └─ page.js
+│  ├─ admin/
+│  │  ├─ about/
+│  │  │  └─ page.jsx
+│  │  ├─ layout.js
+│  │  └─ page.js
+│  ├─ favicon.ico
+│  ├─ globals.css
+│  ├─ layout.js
+│  └─ not-found.jsx
+├─ Components/
+│  ├─ Card.jsx
+│  ├─ GoBackButton.jsx
+│  └─ Navigation.jsx
+├─ config/
+│  └─ db.jsx
+├─ public/
+│  ├─ images/
+│  │  ├─ EnhancedImage.jpg
+│  │  └─ rajsingh.png
+│  ├─ file.svg
+│  ├─ globe.svg
+│  ├─ next.svg
+│  ├─ vercel.svg
+│  └─ window.svg
+├─ .env
+├─ .env.example
+├─ .gitignore
+├─ eslint.config.mjs
+├─ jsconfig.json
+├─ next.config.mjs
+├─ package-lock.json
+├─ package.json
+├─ postcss.config.mjs
+└─ README.md
+

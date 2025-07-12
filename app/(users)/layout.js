@@ -328,3 +328,26 @@ export default function RootLayout({ children }) {
  //# generateStaticParams() only work in Server Component.
  //# if we have big dataset (means 1 million+ slugs(dynamic value)) then build time error show. then hybrid dynamic/ISR is better.
  //# use when dynamic routes[slug],[id](dynamic render page) to pre-render static page , so In short Dynamic pages ko build time pr static pages m convert karne k liye ye fun use hota hai
+
+
+ //! 19. Server Action + "use server" :- {use when In server component Insert Form data into MySql, Server Action is for server logic, and "use server" tells Next.js to keep it on the server only}
+
+ //? Server Actions - Server Actions are async functions that run only on the server and are used to handle form submissions, mutate data, or perform secure logic without needing an API route.
+ 
+//^ Use Case:
+// Form submission without useState, onSubmit, etc.
+// Directly call a function on the server when a form is submitted.
+// Avoid client-side JavaScript for simple forms.
+
+ 
+  //? "use server" -  "use server" is a special directive used inside a server action function to tell Next.js: "This async function must always run on the server."
+
+//^ Use Case:
+// Mandatory when we define a server action in the same file as a client or shared module.
+// It tells the bundler to not include this function in client bundles.
+
+//*e.g-  
+    //    "use server";                                                // it could define inside fun. or at the top
+    //    export async function contactServerAction(formData) {             // define Server Action (async fun.)   
+    //          server-side logic (e.g., save to DB)
+    //      }

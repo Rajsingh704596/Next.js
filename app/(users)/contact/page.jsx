@@ -1,6 +1,6 @@
 import React from "react";
 
-//^ metadata obj. create for about page , next js handle this obj automatically
+//^ metadata obj. create for contact page , next js handle this obj automatically
 export const metadata = {
   title: "Contact page", // title show when this page load
   description: "description for contact page",
