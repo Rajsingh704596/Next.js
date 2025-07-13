@@ -55,8 +55,11 @@ nextjs_app/
 │  │  │  ├─ Counter.jsx
 │  │  │  └─ page.jsx
 │  │  ├─ contact/
-│  │  │  ├─ server-action/                  (server Action , "use server" e.g for FormData in Server Component)
+│  │  │  ├─ contactform-rcc/                   (contact form useActionState() hook + server action in client component )
 │  │  │  │  ├─ contact.server-action.jsx
+│  │  │  │  └─ page.jsx
+│  │  │  ├─ contactform-rsc/                    (contact form + server action both in server component )
+│  │  │  │  ├─ contact.server-action.jsx 
 │  │  │  │  └─ page.jsx
 │  │  │  └─ page.jsx         
 │  │  ├─ doctors/
@@ -128,4 +131,3 @@ nextjs_app/
 ├─ package.json
 ├─ postcss.config.mjs
 └─ README.md
-
