@@ -372,3 +372,16 @@ export default function RootLayout({ children }) {
 //  const [state, formAction, isPending] = useActionState(fn, initialState, permallink?);
 //^ here  state - after form submit fun return data store here (e.g.like data submit or error) , formAction - it used to tell component trigger useActionState hook , isPending - handle pending state automatically and return true and false value , fn - server action(server fun.) , initialState - null (form submit initial value) 
 
+
+//$ useFormStatus() - useFromStatus Hook [React Dom v19 hook] provides status information of the last form submission like (pending, data, method, action information which we can destructure).
+//#  provides status info from a parent <form> using Form Actions. 
+//# we can read:
+// pending: whether the form submission is in process
+// data, method, action (React 19+ only) 
+// It tracks the form’s state via React Context instead of prop drilling .
+
+//^  Use only inside a child component of a <form action={...}>.  
+//   const status = useFormStatus()         or
+//   const {pending, data, method, action  } = useFormStatus();
+
+//^ In Short- useFormStatus React hook returns a status object with pending (true if form is submitting), data (submitted FormData or null), method ('get' or 'post'), and action (form action function or null), useful only inside a client component within a <form> using Form Actions.

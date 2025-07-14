@@ -76,13 +76,18 @@ const ContactPage = () => {
               ></textarea>
             </div>
 
-            <button
+            {/* 1st way to submit */}
+
+            {/* <button
               type="submit"
               disabled={isPending}
               className="self-start bg-blue-600 text-white hover:bg-blue-500 rounded-md px-6 py-2 font-semibold transition duration-200"
             >
               <span>{isPending ? "Loading..." : "Send Message"}</span>
-            </button>
+            </button> */}
+
+            {/* 2nd way to submit form but here no need to pass props (like isPending state) */}
+            <Submit />
           </div>
         </form>
 
@@ -103,3 +108,20 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+
+//! 2nd way submit component- (where no need pass props) :-  here we use useFormState() hook
+
+import { useFormStatus } from "react-dom"; //React 19 new react-dom hook
+const Submit = () => {
+  const { pending, data, method, action } = useFormStatus(); // we can destructure pending state and other detail like this (byDefault ).
+
+  return (
+    <button
+      type="submit"
+      disabled={pending}
+      className="self-start bg-blue-600 text-white hover:bg-blue-500 rounded-md px-6 py-2 font-semibold transition duration-200"
+    >
+      <span>{pending ? "Loading..." : "Send Message"}</span>
+    </button>
+  );
+};
