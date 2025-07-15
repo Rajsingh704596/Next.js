@@ -1,4 +1,4 @@
- /*!  Global Css :-
+/*!  Global Css :-
  Global Scope: These styles apply to every route,Component,pages in the application
  
  used For reset/Normalize css, Root css variables, base styles
@@ -22,9 +22,8 @@
   --font-mono: var(--font-geist-mono);
 
   /* here we can add css variable for tailwind css */
-  --font-roboto:var(--font-roboto);
-  --font-work:var(--font-work-sans);
-
+  --font-roboto: var(--font-roboto);
+  --font-work: var(--font-work-sans);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -40,14 +39,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.heading_title{
-  color:pink;
+.heading_title {
+  color: pink;
   font-size: larger;
   font-weight: bolder;
 }
 
-
 /* global heading using tailwind css */
-.heading{
+.heading {
   @apply bg-gradient-to-r from-yellow-700 via-amber-600 to-orange-500 text-transparent bg-clip-text;
 }
