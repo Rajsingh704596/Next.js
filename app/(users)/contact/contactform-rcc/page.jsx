@@ -109,7 +109,7 @@ const ContactPage = () => {
 
 export default ContactPage;
 
-//! 2nd way submit component- (where no need pass props) :-  here we use useFormState() hook
+// //! 2nd way submit component- (where no need pass props) :-  here we use useFormState() hook
 
 import { useFormStatus } from "react-dom"; //React 19 new react-dom hook
 const Submit = () => {
@@ -125,3 +125,84 @@ const Submit = () => {
     </button>
   );
 };
+
+//^ 3rd way(old method)   Register form other e.g Not include with upper e.g
+//! useRouter hook use here -after form submission redirect to home page ("/") [Only use in Client Component]
+// "use Client"
+
+// import { useState } from "react";
+// import { useRouter } from "next/navigation";
+
+// const Register = () => {
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     email: "",
+//     password: "",
+//   });
+
+//   const router = useRouter();
+
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData({
+//       ...formData,
+//       [name]: value,
+//     });
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     // Here you would typically send the form data to your backend
+//     // and get a response, but for this example, we'll just simulate it.
+//     try {
+//       // Simulating a successful registration response.
+//       // On success, redirect to the home page ("/").
+//       router.push("/");
+//     } catch (error) {
+//       // Handle error if needed
+//       console.error("Registration failed", error);
+//     }
+//   };
+
+//   return (
+//     <div className="bg-white/50 text-black container mx-auto">
+//       <h1>Register</h1>
+//       <form onSubmit={handleSubmit}>
+//         <div>
+//           <label>Name</label>
+//           <input
+//             type="text"
+//             name="name"
+//             value={formData.name}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+//         <div>
+//           <label>Email</label>
+//           <input
+//             type="email"
+//             name="email"
+//             value={formData.email}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+//         <div>
+//           <label>Password</label>
+//           <input
+//             type="password"
+//             name="password"
+//             value={formData.password}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+//         <button type="submit">Submit</button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default Register;

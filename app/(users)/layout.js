@@ -371,3 +371,16 @@ export default function RootLayout({ children }) {
 // redirect("/")
 // todo-  In Server Action and Route Handlers , redirect should be called outside the try block when try/catch statements , otherwise it's throws an error.
 //@ but we can handle error with this code -    if (error.message === "NEXT_REDIRECT") throw error;
+
+//! 22. useRouter() hook : In Client component , we use this hook for redirect the user to another url(page) after form submit/login successfully
+//# the useRouter hook allows to programmatically change routes inside Client component.
+//* Recommendation : use the <link> component to navigation unless we have a specific requirement for using useRouter.
+//^ e.g-  import {useRouter} from "next/navigation";
+//^         const router = useRouter ()
+//* then we use any of this -
+//$ router.push(href) - Page switch karta hai, history mein nayi entry.   [ here we use this e.g ]
+//$ router.replace(href) - Page switch karta hai, par history mein nayi entry nahi.
+//$ router.refresh() - Page ko refresh karta hai bina client-side state lose kiye.
+//$ router.prefetch(href) - Page ko pehle se load kar leta hai, taaki jaldi load ho.
+//$ router.back() - Pichle page pe jata hai.
+//$ router.forward() - Agle page pe jata hai.
