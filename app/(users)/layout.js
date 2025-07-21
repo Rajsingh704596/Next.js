@@ -384,3 +384,25 @@ export default function RootLayout({ children }) {
 //$ router.prefetch(href) - Page ko pehle se load kar leta hai, taaki jaldi load ho.
 //$ router.back() - Pichle page pe jata hai.
 //$ router.forward() - Agle page pe jata hai.
+
+//! 23. useTransition() Hook – [React 19 + Next.js 15]
+// useTransition is a React Hook that lets render a part of the UI in the background which takes time , so user interaction not slow.
+// # Marks some updates as "low priority" so UI stays smooth during heavy or async tasks.
+// # Returns: [isPending, startTransition]
+//     - isPending: true while transition is happening (show loader, etc.)
+//     - startTransition(fn): Runs update in background (non-blocking)
+//^ React 19 Feature:
+//     - Now supports async functions inside startTransition()
+//     - Helpful for API calls, form submissions, optimistic UI, loading/error handling
+//^  Next.js 15 Integration:
+//     - Works perfectly with <form action={serverAction}>
+//     - Keeps UI responsive during server mutations or route actions
+//^  Use it when:
+//     - Filtering/searching big lists
+//     - Rendering charts, tabs, lazy components
+//     - Submitting forms to server
+//     - Updating UI with optimistic feedback
+//^  Don't use for:
+//     - Small state changes (like toggle, counter)
+//     - Simple input updates (e.g., typing in a text field without side effects)
+// todo -{Not Recommended useTransition in Next js for form  - we can use useActionState for contact Form}

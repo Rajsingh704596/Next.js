@@ -38,89 +38,91 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## Folder Structure
 
 ```md
-
 nextjs_app/
 ├─ app/
-│  ├─ (users)/
-│  │  ├─ about/
-│  │  │  ├─ section/
-│  │  │  │  └─ page.jsx
-│  │  │  ├─ about.module.css
-│  │  │  ├─ layout.jsx
-│  │  │  └─ page.jsx
-│  │  ├─ blog/
-│  │  │  └─ [...slug]/
-│  │  │     └─ page.jsx
-│  │  ├─ client-comp/
-│  │  │  ├─ Counter.jsx
-│  │  │  └─ page.jsx
-│  │  ├─ contact/
-│  │  │  ├─ contactform-rcc/                   (contact form useActionState() hook + server action in client component )
-│  │  │  │  ├─ contact.server-action.jsx
-│  │  │  │  └─ page.jsx
-│  │  │  ├─ contactform-rsc/                    (contact form + server action both in server component )
-│  │  │  │  ├─ contact.server-action.jsx 
-│  │  │  │  └─ page.jsx
-│  │  │  └─ page.jsx         
-│  │  ├─ doctors/
-│  │  │  └─ [id]/
-│  │  │     └─ page.jsx
-│  │  ├─ fetch-api-data/
-│  │  │  ├─ client-comp/
-│  │  │  │  ├─ loading.jsx
-│  │  │  │  └─ page.jsx
-│  │  │  ├─ server-comp/
-│  │  │  │  ├─ DataCard.jsx
-│  │  │  │  ├─ loading.jsx
-│  │  │  │  └─ page.jsx
-│  │  │  └─ page.jsx
-│  │  ├─ products/
-│  │  │  ├─ page.jsx
-│  │  │  └─ ProductList.jsx
-│  │  ├─ rendering/
-│  │  │  ├─ dynamic/
-│  │  │  │  └─ page.jsx
-│  │  │  ├─ ISR/
-│  │  │  │  └─ page.jsx
-│  │  │  └─ static/
-│  │  │     └─ page.jsx
-│  │  ├─ server-comp/
-│  │  │  └─ page.jsx
-│  │  ├─ static/
-│  │  │  └─ page.jsx
-│  │  ├─ users/
-│  │  │  └─ [username]/
-│  │  │     ├─ post/
-│  │  │     │  └─ [postId]/
-│  │  │     │     └─ page.jsx
-│  │  │     └─ page.jsx
-│  │  ├─ layout.js
-│  │  ├─ loading.js
-│  │  └─ page.js
-│  ├─ admin/
-│  │  ├─ about/
-│  │  │  └─ page.jsx
-│  │  ├─ layout.js
-│  │  └─ page.js
-│  ├─ favicon.ico
-│  ├─ globals.css
-│  ├─ layout.js
-│  └─ not-found.jsx
+│ ├─ (users)/
+│ │ ├─ about/
+│ │ │ ├─ section/
+│ │ │ │ └─ page.jsx
+│ │ │ ├─ about.module.css
+│ │ │ ├─ layout.jsx
+│ │ │ └─ page.jsx
+│ │ ├─ blog/
+│ │ │ └─ [...slug]/
+│ │ │ └─ page.jsx
+│ │ ├─ client-comp/
+│ │ │ ├─ Counter.jsx
+│ │ │ └─ page.jsx
+│ │ ├─ contact/
+│ │ │ ├─ contactform-rcc/ (Contact form in Client Component + server Action)
+│ │ │ │ ├─ otherway/
+│ │ │ │ │ ├─ contact.server-action.jsx  
+│ │ │ │ │ └─ page.jsx (using useTransition hook)  
+│ │ │ │ ├─ contact.server-action.jsx
+│ │ │ │ └─ page.jsx (Recommended way in client component using useActionState)
+│ │ │ ├─ contactform-rsc/ (contact form + server action both in server component )
+│ │ │ │ ├─ contact.server-action.jsx
+│ │ │ │ └─ page.jsx
+│ │ │ └─ page.jsx  
+│ │ ├─ doctors/
+│ │ │ └─ [id]/
+│ │ │ └─ page.jsx
+│ │ ├─ fetch-api-data/
+│ │ │ ├─ client-comp/
+│ │ │ │ ├─ loading.jsx
+│ │ │ │ └─ page.jsx
+│ │ │ ├─ server-comp/
+│ │ │ │ ├─ DataCard.jsx
+│ │ │ │ ├─ loading.jsx
+│ │ │ │ └─ page.jsx
+│ │ │ └─ page.jsx
+│ │ ├─ products/
+│ │ │ ├─ page.jsx
+│ │ │ └─ ProductList.jsx
+│ │ ├─ rendering/
+│ │ │ ├─ dynamic/
+│ │ │ │ └─ page.jsx
+│ │ │ ├─ ISR/
+│ │ │ │ └─ page.jsx
+│ │ │ └─ static/
+│ │ │ └─ page.jsx
+│ │ ├─ server-comp/
+│ │ │ └─ page.jsx
+│ │ ├─ static/
+│ │ │ └─ page.jsx
+│ │ ├─ users/
+│ │ │ └─ [username]/
+│ │ │ ├─ post/
+│ │ │ │ └─ [postId]/
+│ │ │ │ └─ page.jsx
+│ │ │ └─ page.jsx
+│ │ ├─ layout.js
+│ │ ├─ loading.js
+│ │ └─ page.js
+│ ├─ admin/
+│ │ ├─ about/
+│ │ │ └─ page.jsx
+│ │ ├─ layout.js
+│ │ └─ page.js
+│ ├─ favicon.ico
+│ ├─ globals.css
+│ ├─ layout.js
+│ └─ not-found.jsx
 ├─ Components/
-│  ├─ Card.jsx
-│  ├─ GoBackButton.jsx
-│  └─ Navigation.jsx
+│ ├─ Card.jsx
+│ ├─ GoBackButton.jsx
+│ └─ Navigation.jsx
 ├─ config/
-│  └─ db.jsx
+│ └─ db.jsx
 ├─ public/
-│  ├─ images/
-│  │  ├─ EnhancedImage.jpg
-│  │  └─ rajsingh.png
-│  ├─ file.svg
-│  ├─ globe.svg
-│  ├─ next.svg
-│  ├─ vercel.svg
-│  └─ window.svg
+│ ├─ images/
+│ │ ├─ EnhancedImage.jpg
+│ │ └─ rajsingh.png
+│ ├─ file.svg
+│ ├─ globe.svg
+│ ├─ next.svg
+│ ├─ vercel.svg
+│ └─ window.svg
 ├─ .env
 ├─ .env.example
 ├─ .gitignore
@@ -131,3 +133,4 @@ nextjs_app/
 ├─ package.json
 ├─ postcss.config.mjs
 └─ README.md
+```
