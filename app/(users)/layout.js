@@ -406,3 +406,21 @@ export default function RootLayout({ children }) {
 //     - Small state changes (like toggle, counter)
 //     - Simple input updates (e.g., typing in a text field without side effects)
 // todo -{Not Recommended useTransition in Next js for form  - we can use useActionState for contact Form}
+
+//! 24. revalidatePath() - {Cache Invalidation on Demand}
+//#  revalidatePath allows you to purge (remove) cached data for a specific route/path
+//#  revalidatePath(): Cache ko stale mark karta hai (fresh fetch next visit par hota hai)
+//todo-  Use Case: Jab bhi data update ho (form submit, CMS change), to fresh data ensure karne ke liye
+
+//$  Sirf Server Actions ya API Routes ke andar use hota hai (client-side se nahi)
+//*  Static path: revalidatePath('/blog/post-1')
+//*  Dynamic path: revalidatePath('/blog/[slug]', 'page')  // 2nd arg 'page' ya 'layout' dena zaroori hai
+
+//^  Ye data turant fetch nahi karta, sirf cache invalidate karta hai.
+//^  Abhi ye pura client-side router cache bhi clear kar deta hai (future mein path-specific hoga)
+//^  full control chahiye to revalidateTag() use karo (multiple pages ya shared data ke liye)
+
+//todo- But here Server Component + Server Action ka use kar rahe ho. Jab form submit karte ho:
+//todo- Server Action revalidatePath call karta hai.
+//todo- Is se server-side cache + client-side Router cache dono clear ho jate hain.
+//todo- Is wajah se UI turant refresh ho jata hai — bina manually page reload kiye.
