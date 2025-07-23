@@ -424,3 +424,17 @@ export default function RootLayout({ children }) {
 //todo- Server Action revalidatePath call karta hai.
 //todo- Is se server-side cache + client-side Router cache dono clear ho jate hain.
 //todo- Is wajah se UI turant refresh ho jata hai — bina manually page reload kiye.
+
+//!25  Client Component form + Server Action revalidate data using router.refresh() method {which part of useRouter hook next/navigation}
+//? router.refresh() -It forces the current route to re-render — including all server components — and fetches fresh data.
+//^ here e.g
+//Step-1 Form submit hua client component me.
+//Step-2 hospitalServerAction(data) call hua — DB me data gaya.
+//Step-3 router.refresh() run hua.
+//Step-4 Browser reload jaisa effect deta hai, lekin bina full page reload ke.
+//Step- Agar kisi page me server components hain jo database se data fetch karte hain, to unka data dobara fetch hota hai.
+//Step- Current page re-render hua — including server component HospitalFormWithRecord.
+//Step- Server component ne DB se naya data fetch kiya.
+//Step- UI me naya record turant show ho gaya — bina page reload ke.
+
+//#  In short for here e.g - router.refresh() ka kaam tha server component ko dobara run karwana taaki updated DB data turant UI me dikh sake — bina manually page reload kiye.
