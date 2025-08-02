@@ -1,10 +1,10 @@
 "use client"; // Now it's client component
 
-import { useRouter } from "next/navigation";
+//import { useRouter } from "next/navigation";
 import { hospitalServerAction } from "./hospital.action";
 
 export const HospitalForm = () => {
-  const router = useRouter();
+  // const router = useRouter();
 
   //   form action fun. where form data get
   const handleCreateHospital = async (formData) => {
@@ -12,7 +12,7 @@ export const HospitalForm = () => {
     await hospitalServerAction(data); // server action call and pass the data
 
     //^ after form submission we want to refresh the page in client component , so we use useRouter() hook where we get properties router.refresh() method
-    router.refresh(); //@ now after form submit page will refresh (server component re-run, or if new data get from db and used in any component for show in ui , then wo part bhi update kar deta hai)
+    // router.refresh(); //@ now after form submit page will refresh (server component re-run, or if new data get from db and used in any component for show in ui , then wo part bhi update kar deta hai)
     //todo- router.refresh() ka kaam tha server component ko dobara run karwana taaki updated DB data turant UI me dikh sake — bina manually page reload kiye.
   };
 

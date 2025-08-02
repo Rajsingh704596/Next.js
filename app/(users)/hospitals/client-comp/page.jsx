@@ -1,4 +1,4 @@
-//! Server Component  where inside client component use
+//! Server Component (which is also Static page rendering) where inside client component use
 
 import { db } from "@/config/db";
 import { HospitalForm } from "./HospitalForm";

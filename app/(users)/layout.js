@@ -438,3 +438,5 @@ export default function RootLayout({ children }) {
 //Step- UI me naya record turant show ho gaya — bina page reload ke.
 
 //#  In short for here e.g - router.refresh() ka kaam tha server component ko dobara run karwana taaki updated DB data turant UI me dikh sake — bina manually page reload kiye.
+//todo - Note - (After build- npm run build) It's (router.refresh()) not work to update submit form data on table on the time because it's static page of server component (where child is client component)
+//todo- On-Demand Revalidation - so we use revalidatePath("/hospitals/client-comp") in server action so it's clear and refresh cached data or pages in response to specific events (so user see fresh content immediately when changes occur) , rather than waiting for automatic time-based revalidation , so now it's(revalidatePath()) work after build with static page , so we say it's alternative of ISR .
